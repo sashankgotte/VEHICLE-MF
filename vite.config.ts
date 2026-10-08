@@ -1,7 +1,8 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import tailwindcss from '@tailwindcss/vite'
 
-export default defineConfig({
-  base: '/VEHICLE-MF/',
-  plugins: [react()],
-})
+export default defineConfig(({ mode }) => ({
+  base: mode === 'production' ? '/VEHICLE-MF/' : '/',
+  plugins: [tailwindcss(), react()],
+}))
